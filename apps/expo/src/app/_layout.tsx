@@ -25,6 +25,8 @@ import { queryClient } from "~/lib/api";
 import { NAV_THEME } from "~/lib/constants";
 import { useIsomorphicLayoutEffect } from "~/lib/hooks/useIsomorphicLayoutEffect";
 import AppThemeProvider from "../lib/theme-provider";
+import { TamaguiProvider } from "tamagui";
+import { config as tamaguiConfig } from "../../tamagui.config";
 
 const LIGHT_THEME: Theme = {
   ...DefaultTheme,
@@ -41,21 +43,23 @@ export default function RootLayout() {
   const colorScheme = useColorScheme();
   return (
     <QueryClientProvider client={queryClient}>
-      {/*
+      <TamaguiProvider config={tamaguiConfig} themeClassNameOnRoot>
+        {/*
           The Stack component displays the current page.
           It also allows you to configure your screens
         */}
-      <Stack
-        screenOptions={{
-          headerStyle: {
-            backgroundColor: "#c03484",
-          },
-          contentStyle: {
-            backgroundColor: colorScheme == "dark" ? "#09090B" : "#FFFFFF",
-          },
-        }}
-      />
-      <StatusBar />
+        <Stack
+          screenOptions={{
+            headerStyle: {
+              backgroundColor: "#c03484",
+            },
+            contentStyle: {
+              backgroundColor: colorScheme == "dark" ? "#09090B" : "#FFFFFF",
+            },
+          }}
+        />
+        <StatusBar />
+      </TamaguiProvider>
     </QueryClientProvider>
   );
 }

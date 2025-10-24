@@ -7,6 +7,7 @@ import type { ReactNode } from "react";
 // import { StyleSheet } from "react-native";
 
 import { ThemeProvider } from "./theme-provider";
+import { NextTamaguiProvider } from "./NextTamaguiProvider";
 
 export const AppProviders = ({ children }: { children: ReactNode }) => {
   useTheme();
@@ -34,8 +35,10 @@ export const AppProviders = ({ children }: { children: ReactNode }) => {
 
   return (
     <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-      {children}
-      <PortalHost />
+      <NextTamaguiProvider>
+        {children}
+        <PortalHost />
+      </NextTamaguiProvider>
     </ThemeProvider>
   );
 };

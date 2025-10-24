@@ -1,0 +1,36 @@
+{
+  "name": "@acme/tamagui",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./config": "./tamagui.config.ts",
+    "./design-system": "./src/design-system.ts",
+    "./*": "./src/*"
+  },
+  "license": "MIT",
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
+  "devDependencies": {
+    "@acme/eslint-config": "workspace:*",
+    "@acme/prettier-config": "workspace:*",
+    "@acme/tsconfig": "workspace:*",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
+    "typescript": "catalog:"
+  },
+  "prettier": "@acme/prettier-config",
+  "dependencies": {
+    "@fontsource/montserrat": "^5.2.6",
+    "@tamagui/colors": "^1.128.1",
+    "@tamagui/core": "^1.128.1",
+    "@tamagui/font-inter": "^1.128.1",
+    "@tamagui/theme-builder": "^1.128.1",
+    "tamagui": "^1.128.1"
+  }
+}
