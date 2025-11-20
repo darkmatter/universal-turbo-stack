@@ -1,0 +1,48 @@
+name: "Run in Dev Environment"
+description: |
+  Run a command in the dev shell, which automatically activates with access to
+  all depdendencies, services, and environment variables.
+inputs:
+  command:
+    description: |
+      Command to run in the dev environment. You can specify multiple commands
+      separated by newlines.
+    required: true
+  cwd:
+    description: "Current working directory"
+    required: false
+    default: "."
+  profile:
+    description: "Specify dev profile to use"
+    required: false
+    default: 'ci'
+  cachix-auth-token:
+    description: "Cachix authentication token"
+    required: false
+runs:
+  using: composite
+  steps:
+    # Nix Run
+    - uses: cachix/install-nix-action@v31
+      with:
+        nix_path: nixpkgs=channel:nixos-unstable
+    - uses: cachix/cachix-action@v16
+      if: ${{ inputs.cachix-auth-token != '' }}
+      with:
+        name: darkmatter
+        authToken: ${{ inputs.cachix-auth-token }}
+    - name: Install devenv.sh
+      shell: bash
+      run: nix profile install nixpkgs#devenv
+    - name: Run action
+      shell: devenv shell bash -- -e {0}
+      run: ${{ inputs.command }}
+      env:
+        TURBO_TEAM: ${{ env.TURBO_TEAM }}
+        TURBO_TOKEN: ${{ env.TURBO_TOKEN }}
+        XDG_CONFIG_HOME: ${{ env.HOME }}/.config
+  # - name: Setup Testcontainers Cloud Client
+  #   uses: atomicjar/testcontainers-cloud-setup-action@v1
+  #   if: inputs.withTestcontainers == 'true'
+  #   with:
+  #     token: ${{ env.TC_CLOUD_TOKEN }}

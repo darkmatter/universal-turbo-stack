@@ -7,6 +7,7 @@
     "./web.css": "./web.css",
     "./base.css": "./base.css",
     "./theme": "./theme.css",
+    "./postcss.config": "./postcss.config.mjs",
     "./postcss-config": "./postcss-config.js"
   },
   "license": "MIT",

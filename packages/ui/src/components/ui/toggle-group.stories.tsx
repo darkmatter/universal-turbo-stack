@@ -46,13 +46,13 @@ export const Default: Story = {
     return (
       <ToggleGroup type="multiple" value={value} onValueChange={setValue}>
         <ToggleGroupItem value="bold">
-          <ToggleGroupIcon icon={Bold} size={16} />
+          <ToggleGroupIcon as={Bold} size={16} />
         </ToggleGroupItem>
         <ToggleGroupItem value="italic">
-          <ToggleGroupIcon icon={Italic} size={16} />
+          <ToggleGroupIcon as={Italic} size={16} />
         </ToggleGroupItem>
         <ToggleGroupItem value="underline">
-          <ToggleGroupIcon icon={Underline} size={16} />
+          <ToggleGroupIcon as={Underline} size={16} />
         </ToggleGroupItem>
       </ToggleGroup>
     );
@@ -70,13 +70,13 @@ export const Single: Story = {
         onValueChange={(val) => setValue(val || "")}
       >
         <ToggleGroupItem value="left">
-          <ToggleGroupIcon icon={AlignLeft} size={16} />
+          <ToggleGroupIcon as={AlignLeft} size={16} />
         </ToggleGroupItem>
         <ToggleGroupItem value="center">
-          <ToggleGroupIcon icon={AlignCenter} size={16} />
+          <ToggleGroupIcon as={AlignCenter} size={16} />
         </ToggleGroupItem>
         <ToggleGroupItem value="right">
-          <ToggleGroupIcon icon={AlignRight} size={16} />
+          <ToggleGroupIcon as={AlignRight} size={16} />
         </ToggleGroupItem>
       </ToggleGroup>
     );
@@ -95,13 +95,13 @@ export const Outline: Story = {
         onValueChange={setValue}
       >
         <ToggleGroupItem value="bold">
-          <ToggleGroupIcon icon={Bold} size={16} />
+          <ToggleGroupIcon as={Bold} size={16} />
         </ToggleGroupItem>
         <ToggleGroupItem value="italic">
-          <ToggleGroupIcon icon={Italic} size={16} />
+          <ToggleGroupIcon as={Italic} size={16} />
         </ToggleGroupItem>
         <ToggleGroupItem value="underline">
-          <ToggleGroupIcon icon={Underline} size={16} />
+          <ToggleGroupIcon as={Underline} size={16} />
         </ToggleGroupItem>
       </ToggleGroup>
     );
@@ -120,15 +120,15 @@ export const WithText: Story = {
         onValueChange={(val) => setValue(val || "")}
       >
         <ToggleGroupItem value="left">
-          <ToggleGroupIcon icon={AlignLeft} size={16} />
+          <ToggleGroupIcon as={AlignLeft} size={16} />
           <Text className="ml-2">Left</Text>
         </ToggleGroupItem>
         <ToggleGroupItem value="center">
-          <ToggleGroupIcon icon={AlignCenter} size={16} />
+          <ToggleGroupIcon as={AlignCenter} size={16} />
           <Text className="ml-2">Center</Text>
         </ToggleGroupItem>
         <ToggleGroupItem value="right">
-          <ToggleGroupIcon icon={AlignRight} size={16} />
+          <ToggleGroupIcon as={AlignRight} size={16} />
           <Text className="ml-2">Right</Text>
         </ToggleGroupItem>
       </ToggleGroup>
@@ -147,13 +147,13 @@ export const Sizes: Story = {
         onValueChange={() => {}}
       >
         <ToggleGroupItem value="bold">
-          <ToggleGroupIcon icon={Bold} size={14} />
+          <ToggleGroupIcon as={Bold} size={14} />
         </ToggleGroupItem>
         <ToggleGroupItem value="italic">
-          <ToggleGroupIcon icon={Italic} size={14} />
+          <ToggleGroupIcon as={Italic} size={14} />
         </ToggleGroupItem>
         <ToggleGroupItem value="underline">
-          <ToggleGroupIcon icon={Underline} size={14} />
+          <ToggleGroupIcon as={Underline} size={14} />
         </ToggleGroupItem>
       </ToggleGroup>
 
@@ -164,13 +164,13 @@ export const Sizes: Story = {
         onValueChange={() => {}}
       >
         <ToggleGroupItem value="bold">
-          <ToggleGroupIcon icon={Bold} size={16} />
+          <ToggleGroupIcon as={Bold} size={16} />
         </ToggleGroupItem>
         <ToggleGroupItem value="italic">
-          <ToggleGroupIcon icon={Italic} size={16} />
+          <ToggleGroupIcon as={Italic} size={16} />
         </ToggleGroupItem>
         <ToggleGroupItem value="underline">
-          <ToggleGroupIcon icon={Underline} size={16} />
+          <ToggleGroupIcon as={Underline} size={16} />
         </ToggleGroupItem>
       </ToggleGroup>
 
@@ -181,13 +181,13 @@ export const Sizes: Story = {
         onValueChange={() => {}}
       >
         <ToggleGroupItem value="bold">
-          <ToggleGroupIcon icon={Bold} size={18} />
+          <ToggleGroupIcon as={Bold} size={18} />
         </ToggleGroupItem>
         <ToggleGroupItem value="italic">
-          <ToggleGroupIcon icon={Italic} size={18} />
+          <ToggleGroupIcon as={Italic} size={18} />
         </ToggleGroupItem>
         <ToggleGroupItem value="underline">
-          <ToggleGroupIcon icon={Underline} size={18} />
+          <ToggleGroupIcon as={Underline} size={18} />
         </ToggleGroupItem>
       </ToggleGroup>
     </View>
@@ -201,13 +201,13 @@ export const Disabled: Story = {
     return (
       <ToggleGroup type="multiple" value={value} onValueChange={setValue}>
         <ToggleGroupItem value="bold">
-          <ToggleGroupIcon icon={Bold} size={16} />
+          <ToggleGroupIcon as={Bold} size={16} />
         </ToggleGroupItem>
         <ToggleGroupItem value="italic" disabled>
-          <ToggleGroupIcon icon={Italic} size={16} />
+          <ToggleGroupIcon as={Italic} size={16} />
         </ToggleGroupItem>
         <ToggleGroupItem value="underline">
-          <ToggleGroupIcon icon={Underline} size={16} />
+          <ToggleGroupIcon as={Underline} size={16} />
         </ToggleGroupItem>
       </ToggleGroup>
     );

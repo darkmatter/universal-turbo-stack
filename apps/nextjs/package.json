@@ -11,7 +11,7 @@
     "lint": "biome lint .",
     "start": "pnpm with-env next start",
     "typecheck": "tsc --noEmit",
-    "with-env": "../../packages/scripts/bin/env.sh",
+    "with-env": "../../scripts/bin/entrypoint dev/nextjs.yaml",
     "ui-add": "pnpm dlx shadcn@latest add --overwrite && biome format src --write",
     "storybook:todo": "storybook dev -p 6006",
     "storybook": "echo \"TODO put mue back \"",

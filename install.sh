@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# install.sh: Activate flox environment and install dependencies
-# Idempotent setup - Most of the setup is done by flox, so this just installs
-# flox
+# install.sh: Activate Nix flake dev environment and install dependencies
+# Idempotent setup - most of the heavy lifting is handled by nix develop
 
 
 
@@ -45,45 +44,34 @@ log "kernel=$kernel machine=$machine shell=$shell"
 # List files in ./include
 SCRIPT_DIR=$(realpath "$(dirname "$0")")
 
-if ! command -v flox >/dev/null 2>&1; then
-  echo "Installing flox (https://flox.dev)"
-  if [ "$(uname -s)" = "Darwin" ]; then
-    brew install flox
-  elif [ -n "${CI_MODE}" ]; then
-    curl -fsSL https://get.flox.dev | bash
-    export PATH="$HOME/.flox/bin:$PATH"
-  else
-    echo "Please install flox manually: https://flox.dev"
-    exit 1
-  fi
-
-else
-  log "flox: OK"
+if ! command -v nix >/dev/null 2>&1; then
+  echo "Nix is required. Please install Nix with flakes enabled: https://nixos.org/download.html"
+  exit 1
 fi
 
+log "nix: $(nix --version)"
 
-if command -v flox >/dev/null 2>&1; then
-  echo "Activating flox environment..."
-  # Use non-interactive activation for scripts
-  # shellcheck disable=SC1091
-  eval "$(flox activate --dump)"
-else
-  echo "Falling back to corepack/pnpm install (no flox)"
+echo "Activating nix flake environment..."
+NIX_FLAGS=(--accept-flake-config)
+
+if [ -n "${CI_MODE}" ]; then
+  NIX_FLAGS+=(--impure)
+fi
+
+nix develop . "${NIX_FLAGS[@]}" --command true
+
+if ! command -v pnpm >/dev/null 2>&1; then
+  echo "pnpm not available after nix develop. Falling back to corepack bootstrap."
   corepack enable
   corepack prepare pnpm --activate
+  pnpm install
 fi
 
-# Install JS deps at root
-pnpm install
-
-# Optional: prepare turbo for monorepo operations
-if ! command -v turbo >/dev/null 2>&1; then
-  pnpm add -g turbo || true
-fi
+echo "✅ Dependencies installed via nix flake dev shell"
 
 echo "✅ install.sh completed"
 
-# TODO: use flox to install direnv
+# TODO: offer to install direnv hooks automatically
 # # Check if direnv hook is in the shell profile
 # if ! grep -q 'direnv hook' "$HOME/.bashrc" && ! grep -q 'direnv hook' "$HOME/.zshrc"; then
 #   log "Adding direnv hook to shell profile"
@@ -111,7 +99,3 @@ echo "✅ install.sh completed"
 #   log "Enabling direnv for this project"
 # fi
 
-# if [ -z "$FLOX_ENV" ]; then
-#   flox activate
-#   exit 0
-# fi

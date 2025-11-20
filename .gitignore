@@ -58,3 +58,4 @@ dist/
 .flox/cache
 .flox/run
 .env.keys
+.direnv

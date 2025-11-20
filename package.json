@@ -55,7 +55,8 @@
       "esbuild"
     ],
     "patchedDependencies": {
-      "nativewind": "patches/nativewind.patch"
+      "nativewind": "patches/nativewind.patch",
+      "react-native-web": "patches/react-native-web.patch"
     }
   }
 }

@@ -83,7 +83,7 @@ export const WithIcon: Story = {
     const [pressed, setPressed] = React.useState(false);
     return (
       <Toggle pressed={pressed} onPressedChange={setPressed}>
-        <ToggleIcon icon={Bold} size={16} />
+        <ToggleIcon as={Bold} size={16} />
       </Toggle>
     );
   },
@@ -94,7 +94,7 @@ export const WithIconAndText: Story = {
     const [pressed, setPressed] = React.useState(false);
     return (
       <Toggle pressed={pressed} onPressedChange={setPressed}>
-        <ToggleIcon icon={Bold} size={16} />
+        <ToggleIcon as={Bold} size={16} />
         <Text className="ml-2">Bold</Text>
       </Toggle>
     );
@@ -121,13 +121,13 @@ export const IconGroup: Story = {
   render: () => (
     <View className="flex items-center space-x-1">
       <Toggle variant="outline" pressed={false} onPressedChange={() => {}}>
-        <ToggleIcon icon={Bold} size={16} />
+        <ToggleIcon as={Bold} size={16} />
       </Toggle>
       <Toggle variant="outline" pressed={false} onPressedChange={() => {}}>
-        <ToggleIcon icon={Italic} size={16} />
+        <ToggleIcon as={Italic} size={16} />
       </Toggle>
       <Toggle variant="outline" pressed={false} onPressedChange={() => {}}>
-        <ToggleIcon icon={Underline} size={16} />
+        <ToggleIcon as={Underline} size={16} />
       </Toggle>
     </View>
   ),

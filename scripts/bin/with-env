@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -e
+
+# Generic entrypoint to inject environment from SSM
+SERVICE="${SERVICE:-}"
+if [ -z "$SERVICE" ]; then
+  echo "SERVICE environment variable is not set. Falling back to dev/apollo"
+  SERVICE="dev/apollo"
+fi
+
+if command -v chamber &> /dev/null; then
+  echo "Injecting environment for service: $SERVICE"
+  exec chamber exec "$SERVICE" -- "$@"
+else
+  exec "$@"
+fi

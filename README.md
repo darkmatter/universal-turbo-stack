@@ -28,25 +28,21 @@ for managing environments. Notable parts of the stack consist of the following:
 
 ### 1.1. 🚀 Quick Start
 
-This repo uses [flox](https://flox.dev) + [nix](https://nixos.org). Install them
-by running `./install.sh`:
+This repo uses a [Nix](https://nixos.org) flake-based development environment.
+Bootstrap everything by running `./install.sh`:
 
 ```sh
 $ ./install.sh
 [installer] kernel=darwin machine=arm64 shell=./install.sh
-[installer] flox: OK
-[installer] direnv: OK
-[installer] direnv hook: OK
-[installer] direnv: OK
-
-$ flox --version
-1.7.4
+[installer] nix: nix (Determinate Nix 3.11.3) 2.31.2
+✅ Dependencies installed via nix flake dev shell
+✅ install.sh completed
 ```
 
-The installer automatically activates a nix development environment configured
+The installer automatically realises the Nix development environment configured
 for this repo. Anything installed in the dev shell does not affect your system
-shell. The development shell contains a prepared environment, so no other steps
-are needed other than `flox activate`.
+shell. The development shell contains a prepared environment, so you can simply
+run `nix develop` (or rely on `direnv`, see below).
 
 </details>
 
@@ -60,10 +56,10 @@ The installer also installed `direnv` - A hook that runs whenever you change
 directory `cd` in your terminal. It looks for a file called `.envrc` and
 automatically runs it, assuming you allowed permission for that path.
 
-Together with flox, this enables zero command onboarding and setup, so long as
+Together with Nix, this enables zero command onboarding and setup, so long as
 they are properly configured. They both respect subdirectories as well as layering,
-so a base config can live at the repo root, and we can have 2 python apps with
-separate python version which configure themselves when we `cd` into them.
+so a base config can live at the repo root, and we can have two apps with different
+toolchains that configure themselves when we `cd` into them.
 
 > **Note**
 > To have VS Code respect development environments, simply make sure that you

@@ -69,11 +69,17 @@
     "SENDGRID_API_KEY",
     "SENDGRID_FROM_EMAIL",
     "STORYBOOK_ENABLED",
-    "NEXTJS_APP_URL"
-  ],
-  "globalPassThroughEnv": [
+    "NEXTJS_APP_URL",
     "NODE_ENV",
     "CI",
+    "SOPS_AGE_KEY",
+    "SOPS_AGE_KEY_FILE",
+    "AWS_ACCESS_KEY_ID",
+    "AWS_SECRET_ACCESS_KEY",
+    "AWS_REGION",
+    "AWS_SESSION_TOKEN"
+  ],
+  "globalPassThroughEnv": [
     "VERCEL",
     "VERCEL_ENV",
     "VERCEL_URL",
