@@ -91,6 +91,7 @@ const config = {
     "@acme/auth",
     "@acme/db",
     "@acme/ui",
+    "@acme/tamagui",
     "@acme/validators",
     "@acme/tailwind-config",
   ],

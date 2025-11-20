@@ -18,6 +18,7 @@
     "storybook:android": "STORYBOOK_ENABLED=1 EXPO_USE_METRO_STORYBOOK=1 expo start --android"
   },
   "dependencies": {
+    "@acme/tamagui": "workspace:*",
     "@acme/auth": "workspace:*",
     "@acme/tailwind-config": "workspace:*",
     "@acme/ui": "workspace:*",

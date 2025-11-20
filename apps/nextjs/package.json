@@ -23,6 +23,7 @@
     "@acme/db": "workspace:*",
     "@acme/env": "workspace:*",
     "@acme/tailwind-config": "workspace:*",
+    "@acme/tamagui": "workspace:*",
     "@acme/ui": "workspace:*",
     "@acme/validators": "workspace:*",
     "@expo/next-adapter": "^6.0.0",
