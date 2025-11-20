@@ -1,26 +1,19 @@
 {
   "name": "@acme/scripts",
   "private": true,
-  "type": "module",
+  "version": "0.1.0",
   "license": "MIT",
+  "type": "module",
   "bin": {
-    "x-env": "./env.workspace.sh",
-    "entrypoint-nextjs": "./entrypoints/nextjs.sh",
-    "entrypoint-expo": "./entrypoints/expo.sh"
+    "x-env": "bin/env.sh"
   },
-  "scripts": {},
+  "scripts": {
+  },
   "devDependencies": {
-    "@types/node": "^22.18.1",
-    "@vitest/coverage-v8": "catalog:",
-    "tsx": "^4.20.6",
-    "typescript": "catalog:"
-  },
-  "dependencies": {
+    "@acme/tsconfig": "workspace:*",
+    "colorette": "^2.0.20",
     "execa": "^9.6.0",
-    "fs-extra": "^11.2.0",
-    "get-port": "^7.1.0",
-    "tree-kill": "^1.2.2",
-    "undici": "^7.3.0"
-  },
-  "version": "0.0.0"
+    "globby": "^15.0.0",
+    "typescript": "catalog:"
+  }
 }

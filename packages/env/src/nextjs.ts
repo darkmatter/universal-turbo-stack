@@ -1,3 +1,4 @@
+import { env as runtimeEnv } from "node:process";
 import { createEnv } from "@t3-oss/env-nextjs";
 import { vercel } from "@t3-oss/env-nextjs/presets-zod";
 import { z } from "zod/v4";
@@ -31,14 +32,15 @@ export const schema: Config = {
    * Destructure all variables from `process.env` to make sure they aren't tree-shaken away.
    */
   experimental__runtimeEnv: {
-    NODE_ENV: process.env.NODE_ENV,
+    NODE_ENV: runtimeEnv.NODE_ENV,
+    // ...config,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   skipValidation:
-    !!process.env.CI ||
+    !!runtimeEnv.CI ||
     IS_CHECKING ||
-    process.env.npm_lifecycle_event === "lint" ||
-    !!process.env.IS_STORYBOOK,
+    runtimeEnv.npm_lifecycle_event === "lint" ||
+    !!runtimeEnv.IS_STORYBOOK,
 };
 
 export const env = createEnv(schema);

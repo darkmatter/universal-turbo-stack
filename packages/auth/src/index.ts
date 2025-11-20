@@ -1,5 +1,6 @@
-import { type BetterAuthPlugin, db } from "@acme/db/client";
+import { db } from "@acme/db/client";
 import { expo } from "@better-auth/expo";
+import type { BetterAuthPlugin } from "better-auth";
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { nextCookies } from "better-auth/next-js";

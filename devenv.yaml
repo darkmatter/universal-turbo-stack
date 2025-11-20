@@ -17,9 +17,6 @@ allowUnfree: true
 imports:
   - ./devenv.nix
   - ./tooling/nix/devenv.nix
-  - ./apps/apollo/devenv.nix
-  - ./apps/nn/devenv.nix
-  - ./apps/nextjs/devenv.nix
 clean:
   enabled: false
   keep:

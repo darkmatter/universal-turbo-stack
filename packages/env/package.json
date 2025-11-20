@@ -28,11 +28,13 @@
     "typescript": "catalog:"
   },
   "dependencies": {
+    "@acme/secrets": "workspace:*",
     "colorette": "^2.0.20",
     "dotenv": "^17.2.3",
     "execa": "^9.6.0",
     "globby": "^15.0.0",
     "jiti": "^2.6.1",
+    "sops-age": "^4.0.2",
     "tsx": "^4.20.6",
     "yaml": "^2.8.1",
     "zod": "^4.1.12"

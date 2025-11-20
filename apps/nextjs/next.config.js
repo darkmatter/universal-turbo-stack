@@ -102,7 +102,7 @@ const config = {
 
   experimental: {
     // forceSwcTransforms: true,
-    reactCompiler: true,
+    // reactCompiler: true,
   },
   compiler: {
     define: {

@@ -3,6 +3,7 @@ packages:
   - packages/*
   - tooling/*
   - scripts
+  - secrets
 
 catalog:
   "@better-auth/expo": 1.4.0-beta.9

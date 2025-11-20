@@ -15,6 +15,7 @@ let
     pkgs.jq
     pkgs.yq
     pkgs.nil
+		pkgs.sops
   ];
 in
 {
