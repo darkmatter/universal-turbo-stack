@@ -13,6 +13,13 @@
     "strings": "on"
   },
   "editor.formatOnSave": true,
+  "files.readonlyInclude": {
+    "**/routeTree.gen.ts": true
+  },
+  "files.watcherExclude": {
+    "**/routeTree.gen.ts": true
+  },
+  "prettier.ignorePath": ".gitignore",
   "tailwindCSS.classFunctions": ["cva", "cx", "cn"],
   "tailwindCSS.experimental.configFile": "./tooling/tailwind/base.css",
   "typescript.enablePromptUseWorkspaceTsdk": true,

@@ -1,4 +1,4 @@
-import { db } from "@acme/db/client";
+import { type BetterAuthPlugin, db } from "@acme/db/client";
 import { expo } from "@better-auth/expo";
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
@@ -10,7 +10,9 @@ import { initEmailOTProvider, sendEmail } from "./email";
 
 export type AuthInstance = ReturnType<typeof betterAuth>;
 
-export function initAuth(options: {
+export function initAuth<
+  TExtraPlugins extends BetterAuthPlugin[] = [],
+>(options: {
   baseUrl: string;
   productionUrl: string;
   secret: string | undefined;
@@ -23,6 +25,7 @@ export function initAuth(options: {
   googleClientSecret?: string;
   discordClientId?: string;
   discordClientSecret?: string;
+  extraPlugins?: TExtraPlugins;
   githubClientId?: string;
   githubClientSecret?: string;
   appleClientId?: string;
@@ -63,6 +66,7 @@ export function initAuth(options: {
         productionURL: options.productionUrl,
       }),
       expo(),
+      ...(options.extraPlugins ?? []),
     ],
     socialProviders: buildSocialProviders(options),
     trustedOrigins: ["expo://"],

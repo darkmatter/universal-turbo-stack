@@ -8,8 +8,7 @@
     "entrypoint-nextjs": "./entrypoints/nextjs.sh",
     "entrypoint-expo": "./entrypoints/expo.sh"
   },
-  "scripts": {
-  },
+  "scripts": {},
   "devDependencies": {
     "@types/node": "^22.18.1",
     "@vitest/coverage-v8": "catalog:",

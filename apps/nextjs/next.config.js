@@ -95,7 +95,7 @@ const config = {
     "@acme/tailwind-config",
   ],
 
-  /** Typechecking happens as a separate CI job */
+  /** We already do linting and typechecking as separate tasks in CI */
   typescript: { ignoreBuildErrors: true },
 
   allowedDevOrigins: ["100.95.205.8" /* Add your IP here */],

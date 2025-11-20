@@ -4,8 +4,9 @@
   "rsc": true,
   "tsx": true,
   "tailwind": {
-    "config": "",
-    "css": "@acme/tailwind-config/native.css",
+    "config": "../../tooling/tailwind/web.ts",
+    "css": "unused.css",
+    // "css": "@acme/tailwind-config/native.css",
     "baseColor": "zinc",
     "cssVariables": true
   },

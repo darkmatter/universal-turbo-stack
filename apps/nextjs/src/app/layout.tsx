@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import "@acme/tailwind-config/web.css";
 
 import { AppProviders } from "@/components/app-providers";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { env } from "@/env";
 
 export const metadata: Metadata = {
@@ -73,6 +74,9 @@ export default function RootLayout(props: { children: React.ReactNode }) {
               {props.children}
             </div>
             <Toaster />
+            <div className="absolute right-4 bottom-4">
+              <ThemeToggle />
+            </div>
           </TRPCReactProvider>
         </AppProviders>
       </body>

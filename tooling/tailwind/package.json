@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@acme/tsconfig": "workspace:*",
-    "@types/node": "^24.6.2",
+    "@types/node": "^22.18.1",
     "postcss-font-magician": "^4.0.0",
     "tailwindcss-debug-screens": "^3.0.1",
     "typescript": "catalog:"

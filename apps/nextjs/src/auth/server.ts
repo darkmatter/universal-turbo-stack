@@ -1,6 +1,7 @@
 import "server-only";
 
 import { initAuth } from "@acme/auth";
+import { nextCookies } from "better-auth/next-js";
 import { headers } from "next/headers";
 import { cache } from "react";
 import { env } from "@/env";
@@ -20,6 +21,7 @@ export const auth = initAuth({
   googleClientSecret: env.AUTH_GOOGLE_SECRET,
   discordClientId: env.AUTH_DISCORD_ID,
   discordClientSecret: env.AUTH_DISCORD_SECRET,
+  extraPlugins: [nextCookies()],
 });
 
 export const getSession = cache(async () =>
