@@ -97,7 +97,7 @@
     "@vueless/storybook-dark-mode": "^9.0.9",
     "dotenv-cli": "^10.0.0",
     "jiti": "^2.6.1",
-    "storybook": "^9.1.10",
+    "storybook": "^9.1.21",
     "tailwindcss": "catalog:",
     "typescript": "catalog:",
     "vite-plugin-react-native-web": "^2.3.0"
